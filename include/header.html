@@ -1,0 +1,65 @@
+<?php 
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+    }
+
+
+
+if (isset($_SESSION['userid'])) {
+
+  
+ $userid = $_SESSION['userid'];
+ 
+
+}
+
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+            
+
+	<title>MOJO MUSIC</title>
+	   
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="CSS/atas.css"> 
+
+</head>
+<body>
+<section>
+<div class="container">
+	<div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation"><a href="album_catalog.php">Shop</a></li>
+            <li role="presentation"><a href="faq.php">About</a></li>
+            <li role="presentation"><a href="mailto:admin@mojomusic.com">Contact</a></li>
+            <li role="presentation" class="active">
+            <?php 
+              if(!isset($userid))              
+              { ?>
+               <a class="link" href="login_page.php" style="text-decoration:none">login</a>
+                  
+              <?php }
+              else
+              { ?>
+              <a class="link" href="log_out.php" style="text-decoration:none">logout</a>
+                 
+              <?php } ?>
+              </li>
+
+              <li>
+                <a href="view_cart.php">
+                  <span class="glyphicon glyphicon-shopping-cart"></span>
+                </a>
+              </li>
+
+          </ul>
+        </nav>
+
+        <a href="http://localhost:8888/PHPecommerce/"><img width="100px" length="100px" src="IMG/MOJO MUSIC.png"></a>
+      </div>
+</div>
+</section>
